@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 body {
     font-family: Arial;
     font-size: 15px;
@@ -60,7 +65,6 @@ header h1 {
 .search:focus {
     cursor: pointer;
     outline: 2px solid greenyellow;
-
 }
 
 .filtro {
