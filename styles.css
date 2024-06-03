@@ -2,9 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
@@ -47,10 +48,12 @@ header h1 {
     justify-content: flex-end;
 }
 
-.container p {
+.container button {
     position: absolute;
     margin-right: 5px;
     cursor: pointer;
+    border: none;
+    background-color: white;
 }
 
 .search {
@@ -79,7 +82,6 @@ header h1 {
 
 main {
     background-color: #f0f0f0;
-    height: 100ch;
 }
 
 footer {
@@ -91,4 +93,45 @@ footer {
     align-content: center;
     justify-content: center;
     align-items: center;
+}
+
+.news {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.divNoticia {
+    display: flex;
+    height: 200px;
+    width: 1000px;
+    margin: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.leiaMais {
+    background-color: rgb(219, 219, 219);
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+}
+
+.dataPubli {
+    display: flex;
+    font-weight: normal;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.noticiaResumo {
+    font-weight: normal;
+}
+
+.noticiasEditora {
+    font-weight: normal;
 }
