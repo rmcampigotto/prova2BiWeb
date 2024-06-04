@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     getApiDefault()
+    filtro()
 })
 
 async function getApiDefault() {
@@ -33,12 +34,15 @@ async function getApiDefault() {
         let dia = element.data_publicacao.slice(0, 2)
         let mes = element.data_publicacao.slice(3, 5)
         let ano = element.data_publicacao.slice(6, 10)
+        let hora = element.data_publicacao.slice(11,13)
+        let minuto = element.data_publicacao.slice(14,16)
+        let segundo = element.data_publicacao.slice(17,19)
 
-        let publichDate = new Date(ano, mes, dia)
+        let publichDate = new Date(ano, mes, dia, hora, minuto, segundo)
         let actualDate = new Date(Date.now())
 
-        let dataMilisegundos = Math.abs(actualDate.getTime() - publichDate.getTime())
-        let diferenca = Math.ceil(dataMilisegundos / (1000 * 60 * 60 * 24))
+        let dataMilisegundos = -(actualDate.getTime() - publichDate.getTime())
+        let diferenca = Math.floor(dataMilisegundos / 86400000)
 
         if (diferenca == 0) {
             data.textContent = 'Publicado hoje'
@@ -78,16 +82,11 @@ async function getApiDefault() {
 function filtro() {
 
     var updateButton = document.querySelector(".filtro");
-    var cancelButton = document.getElementById("cancel");
-    var favDialog = document.getElementById("favDialog");
+    var favDialog = document.getElementById("filter");
 
-    // O botão Update abre uma Dialog
     updateButton.addEventListener("click", function () {
         favDialog.showModal();
     });
 
-    // O botão cancelButtom fecha uma Dialog
-    cancelButton.addEventListener("click", function () {
-        favDialog.close();
-    })
 }
+

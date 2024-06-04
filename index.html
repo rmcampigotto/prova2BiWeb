@@ -32,6 +32,40 @@
         </ul>
     </main>
 
+    <dialog id="filter">
+        <form method="dialog">
+          <section>
+            <p>
+                <label for="filter">Tipo:</label>
+                <select id="tipo">
+                    <option></option>
+                    <option>Noticia</option>
+                    <option>Release</option>
+                </select>
+            </p>
+            <p>
+               <label for="filter">Quantidade:</label>
+               <select id="qtde">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>20</option>
+                </select>
+            </p>
+            <p>
+                <label for="filter">De:</label>
+                <input id="de" type="date" />
+            </p>
+            <p>
+                <label for="filter">Ate:</label>
+                <input id="ate" type="date" />
+            </p>
+          </section>
+          <menu>
+            <button type="submit">APLICAR</button>
+          </menu>
+        </form>
+    </dialog>
+
     <footer>
         <p>© Prova do segundo bimestre - Programação WEB</p>
     </footer>
