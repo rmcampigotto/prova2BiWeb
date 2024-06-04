@@ -103,22 +103,28 @@ footer {
     justify-items: center;
 }
 
+
+
 .divNoticia {
     display: flex;
-    height: 200px;
-    width: 1000px;
-    margin: 20px;
+    width: 800px;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+    overflow: hidden;
+    margin-left: 20px;
 }
 
 .leiaMais {
+    display: flex;
     background-color: rgb(219, 219, 219);
     border: none;
     border-radius: 5px;
     height: 25px;
+    margin-top: 12px;
+    justify-content: center;
+    align-items: center;
 }
 
 .dataPubli {
@@ -128,10 +134,33 @@ footer {
     align-items: center;
 }
 
+.noticiaTitulo {
+    font-size: 150%;
+    margin-bottom: 10px;
+}
+
 .noticiaResumo {
     font-weight: normal;
+    margin-bottom: 10px;
+    max-height: 100ch;
 }
 
 .noticiasEditora {
+    display: flex;
     font-weight: normal;
+    position: relative;
+    top: 20px;
+}
+
+.divFull {
+    display: flex;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2.5px solid rgb(219, 219, 219);
+}
+
+.divImagem img {
+    height: auto;
+    width: 300px;
+    object-fit: fill;
 }

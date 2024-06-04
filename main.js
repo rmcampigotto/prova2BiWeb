@@ -10,8 +10,11 @@ async function getApiDefault() {
     const li = document.querySelector(".news")
 
     items.forEach(element => {
-        const div = document.createElement('div')
-        div.className = "divNoticia"
+        const divNoticia = document.createElement('div')
+        divNoticia.className = "divNoticia"
+
+        const divFull = document.createElement('div')
+        divFull.className = "divFull"
 
         const titulo = document.createElement('p')
         titulo.className = "noticiaTitulo"
@@ -37,15 +40,19 @@ async function getApiDefault() {
         let dataMilisegundos = Math.abs(actualDate.getTime() - publichDate.getTime())
         let diferenca = Math.ceil(dataMilisegundos / (1000 * 60 * 60 * 24))
 
-        if(diferenca == 0){
+        if (diferenca == 0) {
             data.textContent = 'Publicado hoje'
-        } else if (diferenca == 1){
+        } else if (diferenca == 1) {
             data.textContent = 'Publicado Ontem'
         } else {
             data.textContent = `Publicado há ${diferenca} dias`
         }
 
-        // FALTA COLOCAR A IMAGEM, MAS TEM QUE VERIFICAR COM O SATIN, NÃO ENTENDI COM USA O VALOR QUE RETORNA DA API
+        const imagens = JSON.parse(element.imagens)
+        const divImagens = document.createElement('div')
+        divImagens.className = "divImagem"
+        const imagem = document.createElement('img')
+        imagem.src = "https://agenciadenoticias.ibge.gov.br/" + imagens.image_intro
 
         const botao = document.createElement('button')
         botao.className = "leiaMais"
@@ -54,82 +61,33 @@ async function getApiDefault() {
         link.textContent = "Leia mais"
         botao.appendChild(link)
 
-        div.appendChild(titulo)
-        div.appendChild(resumo)
-        div.appendChild(editora)
-        div.appendChild(data)
-        div.appendChild(botao)
-        li.appendChild(div)
+        divImagens.appendChild(imagem)
+        divNoticia.appendChild(titulo)
+        divNoticia.appendChild(resumo)
+        divNoticia.appendChild(editora)
+        divNoticia.appendChild(data)
+        divNoticia.appendChild(botao)
+        divFull.appendChild(divImagens)
+        divFull.appendChild(divNoticia)
+        li.appendChild(divFull)
 
     });
 
 }
 
-// const botao = document.querySelector(".pesquisar")
+function filtro() {
 
-// botao.addEventListener("click", async () => {
+    var updateButton = document.querySelector(".filtro");
+    var cancelButton = document.getElementById("cancel");
+    var favDialog = document.getElementById("favDialog");
 
-//     const input = document.querySelector(".search")
-//     const param = input.textContent
+    // O botão Update abre uma Dialog
+    updateButton.addEventListener("click", function () {
+        favDialog.showModal();
+    });
 
-//     console.log(param)
-
-//     const result = await fetch(`https://servicodados.ibge.gov.br/api/v3/noticias/?busca=${param}`)
-//     const resultJson = await result.json()
-//     const items = resultJson.items
-
-//     const li = document.querySelector(".news")
-
-//     items.forEach(element => {
-//         const div = document.createElement('div')
-//         div.className = "divNoticia"
-
-//         const titulo = document.createElement('p')
-//         titulo.className = "noticiaTitulo"
-//         titulo.textContent = element.titulo
-
-//         const resumo = document.createElement('p')
-//         resumo.className = "noticiaResumo"
-//         resumo.textContent = element.introducao
-
-//         const editora = document.createElement('p')
-//         editora.className = "noticiasEditora"
-//         editora.textContent = `#${element.editorias}`
-
-//         const data = document.createElement('p')
-//         data.className = "dataPubli"
-//         let dia = element.data_publicacao.slice(0, 2)
-//         let mes = element.data_publicacao.slice(3, 5)
-//         let ano = element.data_publicacao.slice(6, 10)
-
-//         let publichDate = new Date(ano, mes, dia)
-//         let actualDate = new Date(Date.now())
-
-//         let dataMilisegundos = Math.abs(actualDate.getTime() - publichDate.getTime())
-//         let diferenca = Math.ceil(dataMilisegundos / (1000 * 60 * 60 * 24))
-
-//         if(diferenca == 0){
-//             data.textContent = 'Publicado hoje'
-//         } else if (diferenca == 1){
-//             data.textContent = 'Publicado Ontem'
-//         } else {
-//             data.textContent = `Publicado há ${diferenca} dias`
-//         }
-
-//         // FALTA COLOCAR A IMAGEM, MAS TEM QUE VERIFICAR COM O SATIN, NÃO ENTENDI COM USA O VALOR QUE RETORNA DA API
-
-//         const botao = document.createElement('button')
-//         botao.className = "leiaMais"
-//         const link = document.createElement('a')
-//         link.href = element.link
-//         link.textContent = "Leia mais"
-//         botao.appendChild(link)
-
-//         div.appendChild(titulo)
-//         div.appendChild(resumo)
-//         div.appendChild(editora)
-//         div.appendChild(data)
-//         div.appendChild(botao)
-//         li.appendChild(div)
-//     })
-// })
+    // O botão cancelButtom fecha uma Dialog
+    cancelButton.addEventListener("click", function () {
+        favDialog.close();
+    })
+}
