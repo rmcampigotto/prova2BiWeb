@@ -31,13 +31,13 @@ async function getApiDefault() {
 
         const data = document.createElement('p')
         data.className = "dataPubli"
-        
+
         let dia = element.data_publicacao.slice(0, 2)
         let mes = element.data_publicacao.slice(3, 5)
         let ano = element.data_publicacao.slice(6, 10)
-        let hora = element.data_publicacao.slice(11,13)
-        let minuto = element.data_publicacao.slice(14,16)
-        let segundo = element.data_publicacao.slice(17,19)
+        let hora = element.data_publicacao.slice(11, 13)
+        let minuto = element.data_publicacao.slice(14, 16)
+        let segundo = element.data_publicacao.slice(17, 19)
 
         let publichDate = new Date(ano, mes, dia, hora, minuto, segundo)
         let actualDate = new Date(Date.now())
@@ -93,14 +93,14 @@ function filtro() {
 
 }
 
-async function buttonSearch(){
+async function buttonSearch() {
 
     const list = document.querySelector(".news")
     list.remove
-    
+
     const input = document.querySelector(".search")
     const param = input.value
-    
+
     const result = await fetch(`https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=5&busca=${param}`)
     const resultJson = await result.json()
     const items = resultJson.items
@@ -128,13 +128,13 @@ async function buttonSearch(){
 
         const data = document.createElement('p')
         data.className = "dataPubli"
-            
+
         let dia = element.data_publicacao.slice(0, 2)
         let mes = element.data_publicacao.slice(3, 5)
         let ano = element.data_publicacao.slice(6, 10)
-        let hora = element.data_publicacao.slice(11,13)
-        let minuto = element.data_publicacao.slice(14,16)
-        let segundo = element.data_publicacao.slice(17,19)
+        let hora = element.data_publicacao.slice(11, 13)
+        let minuto = element.data_publicacao.slice(14, 16)
+        let segundo = element.data_publicacao.slice(17, 19)
 
         let publichDate = new Date(ano, mes, dia, hora, minuto, segundo)
         let actualDate = new Date(Date.now())
