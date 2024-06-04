@@ -31,6 +31,7 @@ async function getApiDefault() {
 
         const data = document.createElement('p')
         data.className = "dataPubli"
+        
         let dia = element.data_publicacao.slice(0, 2)
         let mes = element.data_publicacao.slice(3, 5)
         let ano = element.data_publicacao.slice(6, 10)
@@ -41,8 +42,10 @@ async function getApiDefault() {
         let publichDate = new Date(ano, mes, dia, hora, minuto, segundo)
         let actualDate = new Date(Date.now())
 
-        let dataMilisegundos = -(actualDate.getTime() - publichDate.getTime())
-        let diferenca = Math.floor(dataMilisegundos / 86400000)
+        let dataMilisegundos = actualDate.getTime() - publichDate.getTime()
+        let diferenca = Math.ceil(dataMilisegundos / (1000 * 60 * 60 * 24))
+
+        diferenca = diferenca + 30
 
         if (diferenca == 0) {
             data.textContent = 'Publicado hoje'
