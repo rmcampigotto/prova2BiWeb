@@ -165,12 +165,19 @@ footer {
     object-fit: fill;
 }
 
+dialog {
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+    outline: 2px solid rgb(219, 219, 219);
+}
+
 #filter {
     display: flex;
-    position: fixed;
-    top: 50%;
+    /* position: fixed; */
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     height: 225px;
     width: 550px;
     justify-content: center;
@@ -178,6 +185,8 @@ footer {
     align-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    border: none;
+    border-radius: 5px;
 }
 
 
@@ -187,11 +196,10 @@ dialog .qtde,
 dialog .dataInicial,
 dialog .dataFinal {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    align-content: center;
     flex-direction: column;
-    margin: 10px
+    margin: 10px;
 }
 
 #tipo,
@@ -204,6 +212,8 @@ dialog .dataFinal {
     outline: 2px solid rgb(219, 219, 219);
     border: none;
     border-radius: 5px;
+    margin-left: 5px;
+    padding-left: 5px;
 }
 
 .containerDialog {

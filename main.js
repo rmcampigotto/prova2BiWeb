@@ -85,7 +85,7 @@ async function getApiDefault() {
 function filtro() {
 
     let updateButton = document.querySelector(".filtro");
-    let favDialog = document.getElementById("filter");
+    let favDialog = document.querySelector("dialog");
 
     updateButton.addEventListener("click", function () {
         favDialog.showModal();
