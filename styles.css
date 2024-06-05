@@ -218,7 +218,7 @@ dialog .dataFinal {
 
 .containerDialog {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
@@ -241,4 +241,17 @@ menu button {
     height: 25px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.fecharDialog {
+    display: flex;
+    position: absolute;
+    left: 525px;
+    top: 8px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
 }
