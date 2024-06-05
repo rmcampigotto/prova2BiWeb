@@ -27,7 +27,10 @@ async function getApiDefault() {
 
         const editora = document.createElement('p')
         editora.className = "noticiasEditora"
-        editora.textContent = `#${element.editorias}`
+        const editoras = (element.editorias).split(';')
+        editoras.forEach(edit => {
+            editora.textContent = editora.textContent + `#${edit} `
+        })
 
         const data = document.createElement('p')
         data.className = "dataPubli"
