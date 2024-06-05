@@ -85,27 +85,42 @@ async function getApiDefault() {
 function filtro() {
 
     let updateButton = document.querySelector(".filtro");
+    let closeButton = document.querySelector(".fecharDialog")
     let favDialog = document.querySelector("dialog");
+
+    closeButton.addEventListener("onclick", function () {
+        favDialog.close()
+    })
 
     updateButton.addEventListener("click", function () {
         favDialog.showModal();
     });
 
+
+}
+
+async function searchFilter(){
+    
 }
 
 async function buttonSearch() {
 
-    const list = document.querySelector(".news")
-    list.remove
+    const ul = document.querySelector(".listaNews")
+    const listOld = document.querySelector(".news")
+
+    ul.removeChild(listOld)
+
+    const listNew = document.createElement("li")
+    listNew.className = "news"
+
+    ul.appendChild(listNew)
 
     const input = document.querySelector(".search")
     const param = input.value
 
-    const result = await fetch(`https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=5&busca=${param}`)
+    const result = await fetch(`https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=50&busca=${param}`)
     const resultJson = await result.json()
     const items = resultJson.items
-
-    const li = document.querySelector(".news")
 
     items.forEach(element => {
         const divNoticia = document.createElement('div')
@@ -173,7 +188,7 @@ async function buttonSearch() {
         divNoticia.appendChild(botao)
         divFull.appendChild(divImagens)
         divFull.appendChild(divNoticia)
-        li.appendChild(divFull)
+        listNew.appendChild(divFull)
 
     })
 

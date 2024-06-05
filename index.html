@@ -26,7 +26,7 @@
         </svg>
     </header>
     <main>
-        <ul>
+        <ul class="listaNews">
             <li class="news">
             </li>
         </ul>
@@ -34,9 +34,11 @@
 
     <dialog>
         <div id="filter">
-
-            <form method="dialog">
+            <form method="dialog" onsubmit="searchFilter()">
                 <section class="containerDialog">
+                    <button class="fecharDialog">
+                        X
+                    </button>
                     <p class="tipo">
                         <label for="filter">Tipo:</label>
                         <select id="tipo">
