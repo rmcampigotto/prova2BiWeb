@@ -119,6 +119,10 @@ async function searchFilter(){
     const qtd = document.querySelector("#qtde")
     const qtdChoice = (qtd.options[qtd.selectedIndex].text)
 
+    if(tipoChoice == 'selecione'){
+        return getApiDefault()
+    }
+
     let url = `https://servicodados.ibge.gov.br/api/v3/noticias/?tipo=${tipoChoice}&qtd=${qtdChoice}`
 
     const dataInicial = document.querySelector("#de")
