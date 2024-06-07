@@ -1,7 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     getApiDefault()
-    filtro()
+    filtro()    
+    console.log(window.location.href)
 })
+
+async function addParamUrl(url, paramName, paramValue){
+
+    if(window.location.href = 'http://127.0.0.1:5500/'){
+        url = url + `?${paramName}=${paramValue}`
+    } else {
+        url = url + `&${paramName}=${paramValue}`
+    }
+
+    history.pushState(null,null,url)
+
+}
 
 async function getApiDefault() {
     const result = await fetch("https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=10")
@@ -42,9 +55,6 @@ async function searchFilter(){
     listNew.className = "news"
 
     ul.appendChild(listNew)
-
-    const input = document.querySelector(".search")
-    const param = input.value
 
     const tipo = document.querySelector("#tipo")
     const tipoChoice = (tipo.options[tipo.selectedIndex].text).toLowerCase()
@@ -91,6 +101,10 @@ async function buttonSearch() {
 
     const input = document.querySelector(".search")
     const param = input.value
+
+    if( param == null || param == ''){
+        return getApiDefault()
+    }
 
     const result = await fetch(`https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=50&busca=${param}`)
     const resultJson = await result.json()
