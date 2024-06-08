@@ -303,19 +303,15 @@ const controls = {
     createListeners() {
         html.get('.first').addEventListener('click', () => {
             this.goTo(1)
-            console.log(state.page)
         })
         html.get('.last').addEventListener('click', () => {
             this.goTo(state.totalPages)
-            console.log(state.page)
         })
         html.get('.next').addEventListener('click', () => {
             this.next()
-            console.log(state.page)
         })
         html.get('.prev').addEventListener('click', () => {
             this.prev()
-            console.log(state.page)
         })
         listaPages.update()
     }
@@ -324,7 +320,6 @@ const controls = {
 const listaPages = {
     data: new Array(),
     create(item) {
-        console.log(item)
         const list = document.querySelector(".news")
 
         list.appendChild(item)
@@ -335,12 +330,9 @@ const listaPages = {
 
         let page = state.page - 1
         let start = page * state.perPage
-        console.log(state.perPage)
         let end = start + state.perPage
 
-        console.log(this.data)
         const paginatedItems = this.data.slice(start, end)
-        console.log(paginatedItems)
 
         paginatedItems.forEach( element => {
             listaPages.create(element)
