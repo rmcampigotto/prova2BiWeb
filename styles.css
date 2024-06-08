@@ -169,6 +169,13 @@ footer {
     object-fit: fill;
 }
 
+/*ARRUMA AQUI A DIV PAGINAÇÃO JÃO, DIV QUE FICA OS BOTAO PRA MUDAR DE PÁGINA*/
+.pagination{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 dialog {
     margin: auto;
