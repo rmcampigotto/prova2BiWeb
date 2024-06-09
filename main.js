@@ -256,13 +256,6 @@ async function buttonSearch() {
 }
 
 //PAGINAÇÃO
-
-const html = {
-    get(element) {
-        return document.querySelector(element)
-    }
-}
-
 let perPage = 10
 const state = {
     page: 1,
@@ -301,19 +294,18 @@ const controls = {
         listaPages.update()
     },
     createListeners() {
-        html.get('.first').addEventListener('click', () => {
+        document.querySelector('.first').addEventListener('click', () => {
             this.goTo(1)
         })
-        html.get('.last').addEventListener('click', () => {
+        document.querySelector('.last').addEventListener('click', () => {
             this.goTo(state.totalPages)
         })
-        html.get('.next').addEventListener('click', () => {
+        document.querySelector('.next').addEventListener('click', () => {
             this.next()
         })
-        html.get('.prev').addEventListener('click', () => {
+        document.querySelector('.prev').addEventListener('click', () => {
             this.prev()
         })
-        listaPages.update()
     }
 }
 
